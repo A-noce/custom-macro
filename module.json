@@ -2,15 +2,13 @@
   "id": "custom-macro",
   "title": "Custom Module",
   "description": "Módulo personalizado para o jogo Tormenta 20 do mestre Henrique",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "authors": [
     {
       "name": "A-noce"
     }
   ],
-  "esmodules": [
-    "init.js"
-  ],
+  "esmodules": ["init.js"],
   "compatibility": {
     "minimum": 12,
     "verified": "13.336"
