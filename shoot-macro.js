@@ -13,10 +13,10 @@ const recordWeaponAmmunition = {
 
 //Condition to filter if the weapon is with a characte or npc
 function filterWeapon(isNpc, item) {
-  //return isNpc ? item.system.proposito === "disparo"  : item.system.proposito === "disparo" && !!item.system.equipado - BASE SYSTEM
   return isNpc
     ? item.system.proposito === "disparo"
-    : item.system.proposito === "disparo" && !!item.system.equipado2.slot;
+    : item.system.proposito === "disparo" &&
+        (!!item.system.equipado2.slot || !!item.system.equipado);
 }
 
 export async function shoot() {
@@ -47,7 +47,9 @@ export async function shoot() {
   //get the first Weapon
   const weapon = rangedWeapon;
   const weaponName = rangedWeapon.name.toLowerCase();
-  const needsReload = /pistola|mosquete|traque|arcabuz|besta|garrucha/i.test(weaponName);
+  const needsReload = /pistola|mosquete|traque|arcabuz|besta|garrucha/i.test(
+    weaponName,
+  );
 
   const reloadEffectName = "descarregado";
   //Check if the character reloaded the weapon
@@ -109,6 +111,6 @@ export async function shoot() {
       disabled: false,
     };
 
-    await actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
+    await actor.createEmbeddedDocuments("ActiveEffect", [effectData]);    
   }
 }
