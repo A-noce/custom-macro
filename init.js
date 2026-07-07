@@ -1,13 +1,12 @@
-import { critRoll, showTypes } from "./critical-hit.js";
-import { shoot } from "./shoot-macro.js";
-import { randomNames } from "./random-name.js";
-import { showHelp } from "./help.js";
-import { reload } from "./reload-macro.js";
-import { spellBook } from "./spell-list.js";
-import { rollFail } from "./critical-fail.js";
-import { showBag } from "./show-bag.js.js";
-import { getActorInfo } from "./get-actor-info.js.js";
-import { useContraption } from "./use-contraption.js";
+import { critRoll, showTypes } from "./macros/critical-hit.js";
+import { shoot } from "./macros/shoot-macro.js";
+import { randomNames } from "./macros/random-name.js";
+import { showHelp } from "./macros/help.js";
+import { reload } from "./macros/reload-macro.js";
+import { spellBook } from "./macros/spell-list.js";
+import { rollFail } from "./macros/critical-fail.js";
+import { getActorInfo } from "./macros/get-actor-info.js.js";
+import { useContraption } from "./macros/use-contraption.js";
 
 export function registerCustomFunctios() {
   console.log("!!! - All custom functions working!");
@@ -46,10 +45,6 @@ export function registerCustomFunctios() {
       }
       if (/^\/fail/.test(message)) {
         rollFail();
-        return false;
-      }
-      if (/^\/bag/.test(message)) {
-        showBag();
         return false;
       }
       if (/^\/info/.test(message)) {
